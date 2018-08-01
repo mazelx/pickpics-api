@@ -36,6 +36,10 @@ class PictureDoc(Resource):
                 'url': args['url'],
                 'pick_state': int(args["pick_state"] or "0")}
         )
+        if not created:
+            pic.pick_state = int(args["pick_state"] or "0")
+            pic.save()
+
         return model_to_dict(pic)
 
 
