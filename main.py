@@ -29,9 +29,7 @@ class PictureDoc(Resource):
         return model_to_dict(pic)
 
     def put(self, id):
-        print("in da put")
         args = parser.parse_args()
-        print(args["pick_state"] or "0")
         pic, created = Picture.get_or_create(
             id=id,
             defaults={

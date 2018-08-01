@@ -14,14 +14,6 @@ class Picture(Model):
         database = db
 
 
-class PickHistory(Model):
-    id = CharField(unique=True, primary_key=True)
-    picture_id = ForeignKeyField(Picture, backref="picks")
-
-    class Meta:
-        database = db
-
-
 def create_tables():
     with db:
-        db.create_tables([Picture, PickHistory])
+        db.create_tables([Picture])
